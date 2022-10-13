@@ -60,7 +60,7 @@ approximate SVD
 \end{frame}
 
 
-\begin{frame}{Main result: Expected residual projection}
+\begin{frame}{Main result: Expected residual projection\footnote{\tiny\fullcite{precise-expressions}}}
     \vspace{5mm}
     
     Residual projection: $\P_{\!\perp} := \I - \P = \I -
@@ -82,19 +82,7 @@ $\tr (\gamma\A^\top\A + \I)^{-1}=\tr\P_{\!\perp}$, and:
 
 \end{frame}
 
-\begin{frame}{Application: Low-rank approximation}
-  Error analysis for:
-   \begin{enumerate}
-     \item Low-rank approximation \parencite{tropp2011structure}
-     \item Generalized Nystr\"om method \parencite{revisiting-nystrom}
-    \end{enumerate}
-    
-    
-    Low-rank approximation error:
-    \begin{align*}
-      \E[\|\A - \A\P\|_F^2]= \tr\,\A^\top\A\,\Blue{\E[\P_{\!\perp}]}
-    \end{align*}
-\end{frame}
+
 
 \begin{frame}{Application: Optimization}
     Convergence analysis for:
@@ -103,6 +91,8 @@ $\tr (\gamma\A^\top\A + \I)^{-1}=\tr\P_{\!\perp}$, and:
   \item Randomized Subspace Newton  \parencite{Gower2019}
   \item Jacobian Sketching \parencite{jacsketch}
   \end{enumerate}
+  
+  \pause
 
     Let $\x^*$
     be the unique solution of $\A\x^*=\b$ and consider
@@ -127,6 +117,21 @@ Implicit bias of interpolating models \parencite{surrogate-design}
   solution}}
   = \Blue{\E[\P_{\!\perp}]}\,\x^*.
 \end{align*}
+\end{frame}
+
+\begin{frame}{Application: Low-rank approximation}
+  Error analysis for:
+   \begin{enumerate}
+     \item Low-rank approximation \parencite{tropp2011structure}
+     \item Generalized Nystr\"om method \parencite{revisiting-nystrom}
+    \end{enumerate}
+    
+    \pause
+    
+    Low-rank approximation error:
+    \begin{align*}
+      \E[\|\A - \A\P\|_F^2]= \tr\,\A^\top\A\,\Blue{\E[\P_{\!\perp}]}
+    \end{align*}
 \end{frame}
 
 \begin{frame}{Explicit expressions for low-rank approximation error}

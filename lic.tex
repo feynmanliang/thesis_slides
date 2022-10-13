@@ -51,6 +51,7 @@ msg  db 'Hello, World!', 0x0d, 0x0a, '$'
 %   I --> S[SAT]
 %   G --> L[Letter]
 \end{minipage}
+\pause
 \begin{minipage}{0.58\linewidth}
     \begin{verbatim}
     d ~ dPrior
@@ -60,6 +61,8 @@ msg  db 'Hello, World!', 0x0d, 0x0a, '$'
     l ~ lCond(g)
     \end{verbatim}
 \end{minipage}
+
+\pause
 
 \textbf{Example Query}: \texttt{infer(i, {l=Good, s=800})}
 
@@ -93,13 +96,13 @@ where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\t
     \begin{itemize}
         \item Fix $\text{Letter}=\text{Good}$ and $\text{SAT}=1600$
         \item Repeat:
-        \begin{itemize}
-            \item Pick a single random unobserved node
+        \begin{itemize}[<+->]
+            \item UAR choose a latent variable to resample
             \item Sample a \emph{proposal distribution} $Q(\cdot)$ to propose a new value
             \item Accept with probability $\alpha$ and revert otherwise, emit $I_n$
         \end{itemize}
     \end{itemize}
-    
+    \pause
     \begin{theorem}[\cite{hastings1970monte}]
         With appropriately chosen $\alpha$, the above algorithm yields
         a Markov Chain with the posterior as the invariant distribution.

@@ -35,7 +35,9 @@
     \end{algorithm}
 \end{subframe}
 
-\begin{frame}{Prior work \parencite{resnick2007heavy}: closure under addition}
+\begin{frame}{Prior work}
+
+    \parencite{resnick2007heavy}: closure under addition
     \begin{align*}
         &  (\nu_{1},\sigma_{1},\rho_{1})\oplus(\nu_{2},\sigma_{2},\rho_{2}) \\
         & \equiv \begin{cases}
@@ -46,7 +48,8 @@
     \end{align*}
 \end{frame}
 
-\begin{frame}{New: closure under multiplication\footnote{\fullcite{gga}}}
+\begin{frame}{New results\footnote{\fullcite{gga}}}
+    Closure under multiplication
     \begin{align*}
         & (\nu_{1},\sigma_{1},\rho_{1})\otimes(\nu_{2},\sigma_{2},\rho_{2}) \\
         &\qquad \equiv\begin{cases}
@@ -59,26 +62,44 @@
     \end{align*}
 \end{frame}
 
-\begin{frame}{New: closure under Lipschitz maps, bulk correction}
+\begin{frame}{New results}
+    Closure under Lipschitz functions
     \begin{align*}
         & f(X_1,\dots,X_n) \equiv L \max\{X_1,\dots,X_n\}
     \end{align*}
+    
+    $\therefore$\quad Bulk correction with Lipschitz flow
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{Figures/gga/flow-correction.png}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Results: variational inference}
+\begin{subframe}{Results: variational inference}
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{Figures/gga/vi.png}
     \end{figure}
-\end{frame}
+\end{subframe}
 
 \begin{frame}{Results: density estimation}
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{Figures/gga/de.png}
-    \end{figure}
+    \begin{tabular}{llllll}
+    \scriptsize{
+        \toprule
+         & Method & Cauchy ($\alpha=2$) Flow & GGA Affine & GGA Flow & Normal ($\alpha=\infty$) Flow  \\
+        Target & Metric &  &  &  &  \\
+        \midrule
+        \multirow[c]{2}{*}{\shortstack[l]{Cauchy \\($\alpha=2$)}} & $\hat{\alpha}$ & \bfseries 2.1 (0.03) & \bfseries 2.1 (0.04) & \bfseries 2.1 (0.07) & 7.7 (2.5) \\
+         & -$H(p,q)$ & \bfseries -2.5e+03 (49) & -3.9e+03 (56) & -3.9e+03 (55) & -1.4e+07 (6.2e+07) \\
+         \multirow[c]{2}{*}{\shortstack[l]{IG \\($\alpha=2$)}} & $\hat{\alpha}$ & \bfseries 1.9 (0.03) & \bfseries 1.9 (0.092) & \bfseries 1.9 (0.092) & 7.3 (1.7) \\
+         & -$H(p,q)$ & \bfseries -3.5e+03 (83) & -4e+03 (54) & -3.9e+03 (47) & -1.4e+08 (6.2e+08) \\
+        \multirow[c]{2}{*}{\shortstack[l]{StudentT \\($\alpha=3$)}} & $\hat{\alpha}$ & 2.0 (0.06) & \bfseries 3.1 (0.16) & \bfseries 3.3 (0.45) & 7.7 (2.3) \\
+         & -$H(p,q)$ & \bfseries -2.0e+03 (28) & -3.6e+03 (28) & -3.4e+03 (42) & -3e+03 (4.7e+02) \\
+        \multirow[c]{2}{*}{\shortstack[l]{Chi2 \\($\alpha=\infty$)}} & $\hat{\alpha}$ & 2.1 (0.07) & \bfseries 5.5 (1.2) & \bfseries 5.2 (1.6) & \bfseries 6.8 (2.4) \\
+         & -$H(p,q)$ & -2.83e+03 (48) &\bfseries -2.76e+03 (26) & -2.80e+03 (44) & -2.85e+03 (38) \\
+        \multirow[c]{2}{*}{\shortstack[l]{Normal \\($\alpha=\infty$)}} & $\hat{\alpha}$ & 2.9 (0.6) & \bfseries 8.8 (2.8) & \bfseries 8.2 (4) & \bfseries 8.4 (3.5) \\
+         & -$H(p,q)$ &  -1.44e+03 (26) & -1.43e+03 (21) & -1.41e+03 (24) & \bfseries -1.36e+03 (19) \\
+        \bottomrule
+    }
+    \end{tabular}
 \end{frame}

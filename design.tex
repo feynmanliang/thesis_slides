@@ -76,7 +76,11 @@ p^* \ = \  \argmin_{p_1,...,p_n}\ \
   \end{align*}
 \end{block}
 
+\pause
+
 The solution $p^*$ satisfies $f_{\A}\big(\sum_{i}p_i \x_i \x_i^\top\big)\leq\opt$.
+
+\pause
 
 \textbf{Question:}
 For what $k$ can we efficiently round this to $S$ of size $k$?
@@ -99,10 +103,17 @@ then there is a polynomial time
     f_{\A}\big(\X_S^\top\X_S\big) \leq (1+\epsilon)\cdot\opt.
   \end{align*}
 \end{theorem}
+
+\pause
+
 \textbf{Remark:} Extends to other Bayesian criteria:
 C/D/V-optimality.
 
+\pause
+
 \textbf{Key idea:} \ Sampling $k$-DPP that depends on SDP solution and $\A$
+
+\vspace{5mm}
 \end{frame}
 
 \begin{frame}

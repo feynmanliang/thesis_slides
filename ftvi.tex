@@ -26,7 +26,7 @@
     More expressive variational family $\mathcal{Q} \Rightarrow$ better approximation quality
 \end{frame}
 
-\begin{frame}{Expressive variational families using flows}
+\begin{subframe}{Expressive variational families using flows}
     Let $f_\theta$ be an invertible flow and $p_X(x)$ a probability density (the \emph{base distribution}).
     Consider variational family $\mathcal{Q} = \{q_\theta : \theta \in \Theta\}$ where
     \begin{align}
@@ -42,10 +42,10 @@
         \includegraphics[width=0.3\textwidth]{Figures/ftvi/norm_flow_eg.png}
         \caption{\parencite{rezende2015variational} flows can transform a Gaussian into complex pushforward distributions}
     \end{figure}
-\end{frame}
+\end{subframe}
 
 \begin{frame}
-    \frametitle{Fat-tailed variational inference\footnote{\tiny \fullcite{liang2022fat}}}
+    \frametitle{Fat-tailed variational inference\footnote{\fullcite{liang2022fat}}}
     
     %%MM%% \textbf{Research aims (\cite{jaini2020tails}, this work)}: 
     %%MM%% What happens when $\pi$ is fat-tailed? What about when $\pi$ is multivariate?
@@ -74,7 +74,9 @@
         \}$, 
       where $\mu = \text{Normal}(0_d, I_d)$.
       \vspace{3mm}
+      
     \pause
+    
     \textbf{Tail Adaptive Flows (TAF, \cite{jaini2020tails})}:
     
       \quad 
@@ -84,7 +86,9 @@
         \}$,
       where $\mu_\nu = \prod_{i=1}^d \text{StudentT}(\nu)$ with $\nu \in \RR_+$.
       \vspace{3mm}
+      
     \pause
+    
     \textbf{Anisotropic Tail-Adaptive Flows (ATAF, this work)}:
     
       \quad 
@@ -179,7 +183,7 @@
       Then $(f_\theta)_\ast \mu$ is tail isotropic with parameter $\nu$.
     \end{proposition}
     
-    \therefore\quad ATAF is necessary for anisotropic tails
+    \therefore\quad TAF cannot model anisotropic tails!
 
     % \begin{remark}\label{remark:anisotropic}
     %   ATAF can represent tail-anisotropic distributions with up to $d$ different
