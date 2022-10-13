@@ -1,0 +1,86 @@
+\documentclass[11pt]{beamer}
+\usetheme[progressbar=head,block=fill]{metropolis}
+\setbeamercolor{background canvas}{bg=white}
+
+\usepackage[backend=biber,style=authoryear, defernumbers=true]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{cancel}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+\usepackage{subcaption}
+\usepackage{dsfont}
+\usepackage[bold]{hhtensor}
+\usepackage{braket}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{cleveref}
+\usepackage{listings}
+\lstset{basicstyle=\tiny}
+\usepackage[bold]{hhtensor}
+\usepackage{pgfpages}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{patterns}
+\usepackage{tkz-euclide}    
+\usepackage[ruled]{algorithm2e}
+\usepackage[append]{beamersubframe}
+
+
+
+
+\input{macros.tex}
+
+
+
+\title{Randomized tools for inference and analysis}
+\subtitle{Thesis Talk, Mahoney Group Meeting}
+\author{Feynman Liang}
+\institute{UC Berkeley}
+\date{\today}
+
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \setcounter{tocdepth}{1}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\input{intro.tex}
+
+\input{ftvi.tex}
+
+\input{gga.tex}
+
+\input{lic.tex}
+
+\input{design.tex}
+
+\input{descent.tex}
+
+\input{projections.tex}
+
+
+\begin{frame}[allowframebreaks]
+        \frametitle{References}
+        \printbibliography
+\end{frame}
+
+\appendix
+
+\begin{frame}{Graveyard}
+    
+\end{frame}
+
+\appendsubframes
+
+\end{document}
