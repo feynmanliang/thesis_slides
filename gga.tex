@@ -3,7 +3,25 @@
 \begin{frame}{High-level Idea}
     \begin{figure}
         \centering
-        \includegraphics[width=1\textwidth]{Figures/gga/schematic.png}
+        \resizebox{\columnwidth}{!}{%
+        
+            % \begin{tblr}{colspec={Q[.4\textwidth]Q[.2\textwidth]Q[.3\textwidth]}}
+            % \centering \bf Analyze Target & \centering \bf Calibrate Tails & \centering \bf Refine Bulk
+            % \end{tblr}~\\
+            % \vspace{-1.2cm}
+            
+            {
+            \SetTblrInner{rowsep=-8pt}
+            \begin{tblr}{colspec={c Q[.15cm] c Q[1.1cm] c Q[.15cm] c},columns={m,m,m,m,m,m,m}}
+            %\centering Code & & \centering Computation Graph & & \centering Tail Class & & \centering Normalizing Flow
+            %\\
+            \raisebox{-.5\height}{\includegraphics[width=0.25\textwidth]{Figures/gga/schematic_code.pdf} \hspace{-.3cm}}
+            &\scalebox{1}{$\boldsymbol{\longrightarrow}$} & \raisebox{-.4\height}{\hspace{-.3cm} \includegraphics[width=0.2\textwidth]{Figures/gga/schematic.gv.pdf}\hspace{-.2cm}} & \hspace{-.5cm}\scalebox{1.7}{$\xrightarrow{\,\,\textit{\textbf{GGA}}\,\,}$}\hspace{-.7cm}  &  \stackanchor{\includegraphics[width=0.15\textwidth]{Figures/gga/schematic_cauchy.pdf}}{\scalebox{3}{$\mathcal{R}_2$}}\hspace{-.3cm} & \scalebox{1}{$\boldsymbol{\longrightarrow}$ } & \raisebox{-.5\height}{\includegraphics[width=0.2\textwidth]{Figures/gga/schematic_final.pdf}} \\
+            (1) & & (2) & & (3) & & (4)
+            \end{tblr}
+            }
+    
+        }
     \end{figure}
 \end{frame}
 
@@ -48,7 +66,7 @@
     \end{align*}
 \end{frame}
 
-\begin{frame}{New results\footnote{\fullcite{gga}}}
+\begin{frame}{New results I\footnote{\fullcite{gga}}}
     Closure under multiplication
     \begin{align*}
         & (\nu_{1},\sigma_{1},\rho_{1})\otimes(\nu_{2},\sigma_{2},\rho_{2}) \\
@@ -62,17 +80,20 @@
     \end{align*}
 \end{frame}
 
-\begin{frame}{New results}
+\begin{frame}{New results II}
     Closure under Lipschitz functions
     \begin{align*}
         & f(X_1,\dots,X_n) \equiv L \max\{X_1,\dots,X_n\}
     \end{align*}
-    
+    \pause
     $\therefore$\quad Bulk correction with Lipschitz flow
     \begin{figure}
         \centering
-        \includegraphics[width=0.7\textwidth]{Figures/gga/flow-correction.png}
-    \end{figure}
+        \resizebox{\textwidth}{!}{
+    		\input{Figures/gga/lip-nf.pgf}
+	        %\includegraphics[width=0.7\textwidth]{Figures/gga/flow-correction.png}
+		}
+	\end{figure}
 \end{frame}
 
 \begin{subframe}{Results: variational inference}
@@ -83,8 +104,8 @@
 \end{subframe}
 
 \begin{frame}{Results: density estimation}
+    \resizebox{\columnwidth}{!}{%
     \begin{tabular}{llllll}
-    \scriptsize{
         \toprule
          & Method & Cauchy ($\alpha=2$) Flow & GGA Affine & GGA Flow & Normal ($\alpha=\infty$) Flow  \\
         Target & Metric &  &  &  &  \\
@@ -100,6 +121,6 @@
         \multirow[c]{2}{*}{\shortstack[l]{Normal \\($\alpha=\infty$)}} & $\hat{\alpha}$ & 2.9 (0.6) & \bfseries 8.8 (2.8) & \bfseries 8.2 (4) & \bfseries 8.4 (3.5) \\
          & -$H(p,q)$ &  -1.44e+03 (26) & -1.43e+03 (21) & -1.41e+03 (24) & \bfseries -1.36e+03 (19) \\
         \bottomrule
-    }
     \end{tabular}
+    }
 \end{frame}

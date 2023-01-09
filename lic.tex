@@ -83,7 +83,7 @@ what should I expect their \emph{intelligence} to be?
     &= \int I \cdot \Pr[\text{Intelligence}=I | \text{Letter}=\text{Good}, \text{SAT}=1600] dI \\
     &\approx \frac{1}{N} \sum_{n=1}^N I_n
 \end{align*}
-where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\text{Good}, \text{SAT}=1600]$
+where $I_n \sim \Pr[\text{Intelligence} | \text{Letter}=\text{Good}, \text{SAT}=1600]$
 
 \note[itemize]{
 \item Integrals are just really tiny sums, CLT $1/\sqrt{N}$ rate
@@ -96,7 +96,7 @@ where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\t
     \begin{itemize}
         \item Fix $\text{Letter}=\text{Good}$ and $\text{SAT}=1600$
         \item Repeat:
-        \begin{itemize}[<+->]
+        \begin{itemize}
             \item UAR choose a latent variable to resample
             \item Sample a \emph{proposal distribution} $Q(\cdot)$ to propose a new value
             \item Accept with probability $\alpha$ and revert otherwise, emit $I_n$
@@ -130,6 +130,13 @@ where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\t
     \end{figure}
 \end{frame}
 
+\begin{frame}{Results: GMM mode escape}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/lic/gmm-escape.png}
+    \end{figure}
+\end{frame}
+
 % \begin{frame}[fragile]{Prior work: IC in imperative PPLs}
 % 	\begin{figure}
 % 	    \centering
@@ -151,7 +158,7 @@ where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\t
 % 	}
 % \end{frame}
 
-\begin{frame}[fragile]{Prior Work: Trace-based IC \parencite{le2017inference}}
+\begin{frame}[fragile]{Prior Work: RNN on execution trace \parencite{le2017inference}}
 \begin{minipage}{0.4\linewidth}
     \begin{figure}
         \centering
@@ -196,6 +203,10 @@ where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\t
     & q(l | g, \text{observations})
 \end{align*}
 \end{minipage}
+
+``Deep sets'' \parencite{zaheer2017deep} applied to Markov Blanket
+
+
     \note[itemize]{
     \item Each IC proposer only has access to Markov Blanket, respects causal structure
     \item SIS IC suffers in presence of nuisance parameters, requires attention to perform well
@@ -204,17 +215,17 @@ where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\t
 \end{frame}
 
 
-\begin{frame}{Architecture}
+\begin{subframe}{Architecture}
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{Figures/lic/schematic-eg.png}
     \end{figure}
     
     ``Deep sets'' \parencite{zaheer2017deep} applied to Markov Blanket
-\end{frame}
+\end{subframe}
 
 
-\begin{frame}[fragile]{Example IC proposer for "grade"}
+\begin{subframe}[fragile]{Example IC proposer for "grade"}
 
 \begin{figure}
     \centering
@@ -237,17 +248,10 @@ where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\t
     \item Problem: density estimator currently Gaussian/Categorical
     \item Problem: observations shape fixed at compile
 }
-\end{frame}
+\end{subframe}
 
 
-\subsection{Results}
 
-\begin{frame}{Results: GMM mode escape}
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{Figures/lic/gmm-escape.png}
-    \end{figure}
-\end{frame}
 
 \begin{frame}{Results: nuisance parameter robustness}
     \begin{figure}[p]
@@ -268,12 +272,12 @@ where $I_n \overset{\text{iid}}{\sim} \Pr[\text{Intelligence} | \text{Letter}=\t
     \end{figure}
 \end{frame}
 
-\begin{frame}{Results: Bayesian logistic regression}
+\begin{subframe}{Results: Bayesian logistic regression}
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{Figures/lic/blr.png}
     \end{figure}
-\end{frame}
+\end{subframe}
 
 % \begin{frame}[fragile]{Normal-normal model}
 % 	$p \sim N(0.0, 2.0)$, $x \sim N(p, 0.1)$,

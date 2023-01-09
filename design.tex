@@ -9,6 +9,7 @@
     y_i = \x_i^\top\w^* + \xi_i,\qquad \xi_i\sim\Nc(0,\sigma^2),\quad \Blue{\w^*\sim\Nc(0,\sigma^2\A^{-1})}
   \end{align*}
 \textbf{Goal:} Select $k\ll n$ experiments to best estimate $\w^*$
+\pause
 \begin{columns}
 \begin{column}{0.3\textwidth}
 \\ \vspace{0.8cm}
@@ -94,7 +95,7 @@ For what $k$ can we efficiently round this to $S$ of size $k$?
 Define $\A$-effective dimension as $d_{\A} =\tr\big(\X^\top\X(\X^\top\X+\A)^{-1}\big) \leq d$.
 \end{definition}
 \pause
-  \begin{theorem}[\cite{bayesian-experimental-design}]
+  \begin{theorem}
 If $k=\Omega\big(\frac{d_{\A}}{\epsilon} +
 \frac{\log1/\epsilon}{\epsilon^2}\big)$,
 then there is a polynomial time 
